@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Subpile extends Component {
     render() {
-        return <div className="pile">
+        return <div className="subpile">
             {this.props.children[0]}
 
             {this.props.children.length > 1 &&
