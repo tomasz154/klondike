@@ -17,7 +17,7 @@ const source = {
         }
 
         const dropResult = monitor.getDropResult();
-        if (dropResult.type === ItemTypes.FOUNDATION) {
+        if (dropResult.type === ItemTypes.FOUNDATION && props.onDropOnFoundation) {
             props.onDropOnFoundation(dropResult.foundation);
         }
     }
