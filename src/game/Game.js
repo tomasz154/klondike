@@ -1,13 +1,27 @@
 import Pile from './Pile';
+import Foundation from './Foundation';
+import Waste from './Waste';
+import {colors} from './constants';
 
 export default class Game {
     constructor(deck) {
         this.deck = deck;
+        this.waste = new Waste();
+        this.foundations = this.constructor.buildFoundations();
         this.piles = this.constructor.buildPiles(deck);
     }
 
     getPiles() {
         return this.piles;
+    }
+
+    static buildFoundations() {
+        return [
+            new Foundation(),
+            new Foundation(),
+            new Foundation(),
+            new Foundation(),
+        ];
     }
 
     static buildPiles(deck) {
