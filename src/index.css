@@ -4,6 +4,28 @@ body {
     font-family: sans-serif;
 }
 
+.deck {
+    float: left;
+}
+
+.waste {
+    float: left;
+}
+
+.card {
+    width: 200px;
+}
+
+.card img {
+    width: 200px;
+    height: 280px;
+    display: block;
+}
+
+.piles {
+    clear: both;
+}
+
 .pile {
     width: 200px;
     margin: 0 20px;
@@ -34,7 +56,3 @@ body {
     height: auto;
 }
 
-.subpile .card img {
-    width: 100%;
-    display: block;
-}

@@ -4,7 +4,15 @@ import Card from './Card';
 import HiddenCard from './HiddenCard';
 
 function GameDeck({deck}) {
-    return deck.hasCards() ? <HiddenCard/> : null;
+    return <div className="deck">
+        {deck.hasCards() ? <HiddenCard/> : null}
+    </div>;
+}
+
+function GameWaste({waste}) {
+    return <div className="waste">
+        {waste.getVisibleCards().map((c, i) => <Card key={i} figure={c.figure} color={c.color} turnedUp={c.turnedUp}/>)}
+    </div>;
 }
 
 function GameCard({card}) {
@@ -18,10 +26,15 @@ function GamePile({pile}) {
 export default class GameTable extends Component {
     render() {
         const {game} = this.props;
-        
+
         return <div>
-            <GameDeck deck={game.getDeck()}/>
-            {game.getPiles().map((pile, i) => <GamePile key={i} pile={pile}/>)}
+            <div>
+                <GameDeck deck={game.getDeck()}/>
+                <GameWaste waste={game.getWaste()}/>
+            </div>
+            <div className="piles">
+                {game.getPiles().map((pile, i) => <GamePile key={i} pile={pile}/>)}
+            </div>
         </div>;
     }
 }

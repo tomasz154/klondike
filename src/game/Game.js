@@ -15,8 +15,16 @@ export default class Game {
         return this.deck;
     }
 
+    getWaste() {
+        return this.waste;
+    }
+
     getPiles() {
         return this.piles;
+    }
+
+    revealNew() {
+        this.waste.pushCards([this.deck.popCard()]);
     }
 
     static buildFoundations() {

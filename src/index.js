@@ -9,6 +9,7 @@ import Deck from './game/Deck';
 
 const deck = Deck.getRandom();
 const game = new Game(deck);
+game.revealNew();
 ReactDOM.render(<GameTable game={game}/>, document.getElementById('root'));
 
 registerServiceWorker();
