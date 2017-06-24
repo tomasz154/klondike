@@ -7,7 +7,9 @@ class Card extends Component {
     }
 
     render() {
-        return <img src={this.path(this.props.figure, this.props.color)} alt=""/>;
+        return <div className="card">
+            <img src={this.path(this.props.figure, this.props.color)} alt=""/>
+        </div>;
     }
 }
 
