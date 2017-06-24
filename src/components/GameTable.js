@@ -3,6 +3,7 @@ import Pile from './Pile';
 import Card from './Card';
 import Waste from './Waste';
 import Deck from './Deck';
+import Foundation from './Foundation';
 
 function GameCard({card}) {
     return <Card figure={card.figure} color={card.color} turnedUp={card.turnedUp}/>;
@@ -23,6 +24,9 @@ export default class GameTable extends Component {
             <div>
                 <Deck deck={game.deck} onClick={() => game.revealNew()}/>
                 <Waste visibleCards={game.waste.visibleCards}/>
+                <div className="foundations">
+                    {game.foundations.map((foundation, i) => <Foundation key={i} foundation={foundation}/>)}
+                </div>
             </div>
             <div className="piles">
                 {game.piles.map((pile, i) => <GamePile key={i} pile={pile}/>)}

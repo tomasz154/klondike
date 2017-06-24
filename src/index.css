@@ -18,6 +18,14 @@ body {
     float: left;
 }
 
+.foundations {
+    float: right;
+}
+
+.foundation {
+    float: left;
+}
+
 .card {
     width: 200px;
 }
