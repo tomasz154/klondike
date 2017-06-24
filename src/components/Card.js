@@ -27,7 +27,7 @@ const source = {
         if (dropResult.targetType === ItemTypes.FOUNDATION && props.onDropOnFoundation) {
             props.onDropOnFoundation(dropResult.foundation);
         } else if (dropResult.targetType === ItemTypes.PILE && props.onDropOnPile) {
-            props.onDropOnPile(dropResult.pile);
+            props.onDropOnPile(dropResult.pile, 1);
         }
     }
 };

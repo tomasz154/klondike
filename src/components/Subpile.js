@@ -5,7 +5,22 @@ import {DragSource} from 'react-dnd';
 
 const source = {
     beginDrag(props) {
-        return {};
+        return {
+            number: props.number,
+        };
+    },
+
+    endDrag(props, monitor, component) {
+        if (!monitor.didDrop()) {
+            return;
+        }
+
+        const dropResult = monitor.getDropResult();
+
+        if (dropResult.targetType === ItemTypes.PILE /*&& props.onDropOnPile*/) {
+            console.log('xd', dropResult.pile, monitor.getItem().number);
+            props.onDropOnPile(dropResult.pile, monitor.getItem().number);
+        }
     }
 };
 

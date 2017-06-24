@@ -21,23 +21,28 @@ function collect(connect, monitor) {
     };
 }
 
-function Subpile({children}) {
-    return <SubpileDraggable>
+function Subpile({children, onDropOnPile}) {
+    return <SubpileDraggable onDropOnPile={onDropOnPile} number={children.length}>
         {children[0]}
         {children.length > 1 &&
-        <Subpile>
+        <Subpile onDropOnPile={onDropOnPile}>
             {children.slice(1)}
         </Subpile>}
     </SubpileDraggable>;
 }
 
 class Pile extends Component {
+    handleDropSubpileOnPile(pile, number) {
+        this.props.onDropOnPile(pile, number);
+    }
+
     render() {
         const {connectDropTarget, isOver} = this.props;
 
         return connectDropTarget(
             <div className="pile">
-                {this.props.children.length > 0 && <Subpile>{this.props.children}</Subpile>}
+                {this.props.children.length > 0 &&
+                <Subpile onDropOnPile={this.handleDropSubpileOnPile.bind(this)}>{this.props.children}</Subpile>}
             </div>
         );
     }
@@ -47,4 +52,4 @@ Pile.propTypes = {
     // todo
 };
 
-export default DropTarget(ItemTypes.CARD, target, collect)(Pile);
+export default DropTarget([ItemTypes.CARD, ItemTypes.SUBPILE], target, collect)(Pile);

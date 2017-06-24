@@ -48,11 +48,12 @@ export default class Game {
         this.emitChange();
     }
 
-    moveFromPileToPile(source, target) {
-        const card = source.getTopCard();
+    moveFromPileToPile(source, target, number) {
+        console.log(source, target, number);
+        const card = source.getCard(number);
 
         if (target.canPush(card)) {
-            source.toPile(target);
+            source.toPile(target, number);
         }
 
         this.emitChange();

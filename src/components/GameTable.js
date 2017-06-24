@@ -8,7 +8,7 @@ import {DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 function GamePile({pile, onCardDoubleClick, onDropOnFoundation, onDropOnPile}) {
-    return <Pile pile={pile}>
+    return <Pile pile={pile} onDropOnPile={onDropOnPile}>
         {pile.cards.map((card, i) =>
             <Card key={i} card={card}
                   canDrag={i === pile.cards.length - 1}
@@ -41,7 +41,7 @@ class GameTable extends Component {
                     <GamePile key={i} pile={pile}
                               onCardDoubleClick={() => game.moveFromPileToFoundation(pile)}
                               onDropOnFoundation={(foundation) => game.moveFromPileToSpecificFoundation(pile, foundation)}
-                              onDropOnPile={(targetPile) => game.moveFromPileToPile(pile, targetPile)}
+                              onDropOnPile={(targetPile, number) => game.moveFromPileToPile(pile, targetPile, number)}
                     />
                 )}
             </div>
