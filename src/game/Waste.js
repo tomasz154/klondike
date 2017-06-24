@@ -1,7 +1,6 @@
 export default class Waste {
     constructor() {
         this.cards = [];
-        this.visibleCards = [];
     }
 
     hasCards() {
@@ -12,31 +11,29 @@ export default class Waste {
         return this.cards[this.cards.length - 1];
     }
 
-    pushCards(cards) {
-        const revealedCards = cards.map(card => {
-            card.reveal();
-            return card
-        });
+    pushCard(card) {
+        card.reveal();
 
         this.cards = [
             ...this.cards,
-            ...revealedCards
+            card
         ];
+    }
 
-        this.visibleCards = revealedCards;
+    fromDeck(deck) {
+        this.pushCard(deck.popCard());
     }
 
     toDeck(deck) {
-        for (const card of this.cards) {
+        for (const card of this.cards.reverse()) {
             card.hide();
             deck.pushCard(card);
         }
 
-        this.visibleCards = [];
+        this.cards = []
     }
 
     toFoundation(foundation) {
         foundation.pushCard(this.cards.pop());
-        this.visibleCards.pop();
     }
 }

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Card from './Card';
 
-export default function Waste({visibleCards, onDoubleClick}) {
+export default function Waste({waste, onDoubleClick}) {
     return <div className="waste">
-        {visibleCards.map((c, i) => <Card key={i} card={c} onDoubleClick={onDoubleClick}/>)}
+        {waste.hasCards() && <Card card={waste.getTopCard()} onDoubleClick={onDoubleClick}/>}
     </div>;
 }

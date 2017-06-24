@@ -15,7 +15,7 @@ export default class Game {
 
     revealNew() {
         if (this.deck.hasCards()) {
-            this.waste.pushCards([this.deck.popCard()]);
+            this.waste.fromDeck(this.deck);
         } else if (this.waste.hasCards()) {
             this.waste.toDeck(this.deck);
         }

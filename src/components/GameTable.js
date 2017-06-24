@@ -18,7 +18,7 @@ export default class GameTable extends Component {
         return <div>
             <div>
                 <Deck deck={game.deck} onClick={() => game.revealNew()}/>
-                <Waste visibleCards={game.waste.visibleCards} onDoubleClick={() => game.moveFromWasteToFoundation()}/>
+                <Waste waste={game.waste} onDoubleClick={() => game.moveFromWasteToFoundation()}/>
                 <div className="foundations">
                     {game.foundations.map((foundation, i) => <Foundation key={i} foundation={foundation}/>)}
                 </div>
