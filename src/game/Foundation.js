@@ -35,7 +35,7 @@ export default class Foundation {
 
     canPush(card) {
         if (this.hasCards()) {
-            return order.indexOf(card.figure) === order.indexOf(this.getTopCard().figure) + 1;
+            return this.getTopCard().color === card.color && order.indexOf(card.figure) === order.indexOf(this.getTopCard().figure) + 1;
         } else {
             return card.figure === figures.ACE;
         }
