@@ -23,8 +23,8 @@ class GameTable extends Component {
     render() {
         const {game} = this.props;
 
-        return <div>
-            <div>
+        return <div className="table">
+            <div className="top">
                 <Deck deck={game.deck} onClick={() => game.revealNew()}/>
                 <Waste waste={game.waste}
                        onDoubleClick={() => game.moveFromWasteToFoundation()}
@@ -36,7 +36,7 @@ class GameTable extends Component {
                                                                          onCardDrop={() => game.moveFromPileToFoundation()}/>)}
                 </div>
             </div>
-            <div className="piles">
+            <div className="bottom">
                 {game.piles.map((pile, i) =>
                     <GamePile key={i} pile={pile}
                               onCardDoubleClick={() => game.moveFromPileToFoundation(pile)}
