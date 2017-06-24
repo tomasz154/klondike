@@ -60,6 +60,7 @@ body {
 
 .pile {
     margin: 0 auto;
+    width: 150px;
 }
 
 .pile:first-child {

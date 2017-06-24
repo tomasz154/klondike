@@ -17,7 +17,7 @@ const source = {
 
         const dropResult = monitor.getDropResult();
 
-        if (dropResult.targetType === ItemTypes.PILE /*&& props.onDropOnPile*/) {
+        if (dropResult.targetType === ItemTypes.PILE && props.onDropOnPile) {
             props.onDropOnPile(dropResult.pile, monitor.getItem().number);
         }
     }
