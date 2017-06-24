@@ -9,12 +9,8 @@ export default class Game {
         this.foundations = this.constructor.buildFoundations();
         this.piles = this.constructor.buildPiles(deck);
 
-        this.observer = observer(this);
+        this.emitChange = observer(this);
         this.emitChange();
-    }
-
-    emitChange() {
-        this.observer();
     }
 
     revealNew() {
@@ -23,7 +19,29 @@ export default class Game {
         } else if (this.waste.hasCards()) {
             this.waste.toDeck(this.deck);
         }
-        this.observer();
+        this.emitChange();
+    }
+
+    moveFromWasteToFoundation() {
+        const card = this.waste.getTopCard();
+        const foundation = this.findFoundationForCard(card);
+
+        if (foundation.canPush(card)) {
+            this.waste.toFoundation(foundation);
+        }
+
+        this.emitChange();
+    }
+
+    moveFromPileToFoundation(pile) {
+        const card = pile.getTopCard();
+        const foundation = this.findFoundationForCard(card);
+
+        if (foundation.canPush(card)) {
+            pile.toFoundation(foundation);
+        }
+
+        this.emitChange();
     }
 
     static buildFoundations() {
@@ -51,5 +69,21 @@ export default class Game {
         }
 
         return piles;
+    }
+
+    findFoundationByColor(color) {
+        return this.foundations.find(f => f.getColor() === color);
+    }
+
+    findEmptyFoundation() {
+        return this.foundations.find(f => f.getColor() === null);
+    }
+
+    findFoundationForCard(card) {
+        let foundation = this.findFoundationByColor(card.color);
+        if (!foundation) {
+            foundation = this.findEmptyFoundation();
+        }
+        return foundation;
     }
 }

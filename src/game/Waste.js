@@ -8,6 +8,10 @@ export default class Waste {
         return this.cards.length > 0;
     }
 
+    getTopCard() {
+        return this.cards[this.cards.length - 1];
+    }
+
     pushCards(cards) {
         const revealedCards = cards.map(card => {
             card.reveal();
@@ -29,5 +33,10 @@ export default class Waste {
         }
 
         this.visibleCards = [];
+    }
+
+    toFoundation(foundation) {
+        foundation.pushCard(this.cards.pop());
+        this.visibleCards.pop();
     }
 }

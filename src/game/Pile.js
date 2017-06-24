@@ -8,6 +8,17 @@ export default class Pile {
     }
 
     revealLast() {
-        this.cards[this.cards.length - 1].reveal();
+        if (this.cards.length > 0) {
+            this.cards[this.cards.length - 1].reveal();
+        }
+    }
+
+    getTopCard() {
+        return this.cards[this.cards.length - 1];
+    }
+
+    toFoundation(foundation) {
+        foundation.pushCard(this.cards.pop());
+        this.revealLast();
     }
 }
