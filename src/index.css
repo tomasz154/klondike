@@ -8,6 +8,12 @@ body {
     float: left;
 }
 
+.deck-empty {
+    background: yellow;
+    width: 200px;
+    height: 280px;
+}
+
 .waste {
     float: left;
 }

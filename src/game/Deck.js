@@ -17,6 +17,10 @@ export default class Deck {
         }
     }
 
+    pushCard(card) {
+        this.cards.push(card);
+    }
+
     popCard() {
         return this.cards.pop();
     }

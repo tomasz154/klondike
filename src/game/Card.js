@@ -8,4 +8,8 @@ export default class Card {
     reveal() {
         this.turnedUp = true;
     }
+
+    hide() {
+        this.turnedUp = false;
+    }
 }
