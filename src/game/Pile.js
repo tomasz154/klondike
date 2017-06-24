@@ -58,6 +58,10 @@ export default class Pile {
     }
 
     canPush(card) {
+        if (!card.turnedUp) {
+            return false;
+        }
+
         if (!this.hasCards() && card.figure === figures.KING) {
             return true;
         } else {
