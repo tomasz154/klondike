@@ -22,6 +22,11 @@ export default class Pile {
         this.revealLast();
     }
 
+    toPile(pile) {
+        pile.push(this.cards.pop());
+        this.revealLast();
+    }
+
     canPush() {
         // todo
         return true;

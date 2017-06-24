@@ -48,6 +48,16 @@ export default class Game {
         this.emitChange();
     }
 
+    moveFromPileToPile(source, target) {
+        const card = source.getTopCard();
+
+        if (target.canPush(card)) {
+            source.toPile(target);
+        }
+
+        this.emitChange();
+    }
+
     moveFromPileToFoundation(pile) {
         const card = pile.getTopCard();
         const foundation = this.findFoundationForCard(card);
