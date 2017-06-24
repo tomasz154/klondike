@@ -87,16 +87,17 @@ export default class Game {
     static buildPiles(deck) {
         const piles = [];
 
-        for (let pile = 0; pile < 7; pile++) {
-            const cards = new Pile();
+        for (let i = 0; i < 7; i++) {
+            piles[i] = new Pile();
+        }
 
-            for (let i = 0; i < pile + 1; i++) {
-                cards.push(deck.popCard());
+        for (let i = 0; i < 7; i++) {
+            for (let j = i; j < 7; j++) {
+                piles[j].push(deck.popCard());
+                if (i === j) {
+                    piles[j].revealLast();
+                }
             }
-
-            cards.revealLast();
-
-            piles.push(cards);
         }
 
         return piles;
