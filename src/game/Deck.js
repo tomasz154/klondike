@@ -6,6 +6,10 @@ export default class Deck {
         this.cards = cards;
     }
 
+    hasCards() {
+        return this.cards.length > 0;
+    }
+
     shuffle() {
         for (let i = this.cards.length; i; i--) {
             let j = Math.floor(Math.random() * i);

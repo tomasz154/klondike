@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import HiddenCard from './HiddenCard';
 
 class Card extends Component {
     path(figure, color) {
@@ -12,9 +13,7 @@ class Card extends Component {
                 <img src={this.path(this.props.figure, this.props.color)} alt=""/>
             </div>;
         } else {
-            return <div className="card turnedDown">
-                <img src="/card-background.png" alt=""/>
-            </div>;
+            return <HiddenCard/>
         }
     }
 }

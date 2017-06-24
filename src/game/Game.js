@@ -11,6 +11,10 @@ export default class Game {
         this.piles = this.constructor.buildPiles(deck);
     }
 
+    getDeck() {
+        return this.deck;
+    }
+
     getPiles() {
         return this.piles;
     }
