@@ -5,8 +5,10 @@ import './index.css';
 
 import GameTable from './components/GameTable';
 import Game from './game/Game';
+import Deck from './game/Deck';
 
-const game = new Game();
+const deck = Deck.getRandom();
+const game = new Game(deck);
 ReactDOM.render(<GameTable game={game}/>, document.getElementById('root'));
 
 registerServiceWorker();
