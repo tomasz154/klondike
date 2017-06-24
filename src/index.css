@@ -11,7 +11,7 @@ body {
 .deck-empty {
     background: yellow;
     width: 200px;
-    height: 280px;
+    height: 290px;
 }
 
 .waste {
@@ -25,7 +25,7 @@ body {
 .foundation {
     float: left;
     width: 200px;
-    height: 280px;
+    height: 290px;
     background: pink;
     margin: 10px;
 }
@@ -36,7 +36,7 @@ body {
 
 .card img {
     width: 200px;
-    height: 280px;
+    height: 290px;
     display: block;
 }
 

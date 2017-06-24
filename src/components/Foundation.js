@@ -27,7 +27,6 @@ class Foundation extends Component {
 
         return connectDropTarget(
             <div className="foundation">
-                {isOver ? 'jest over' : 'nie jest over'}
                 {foundation.hasCards() ? <Card card={foundation.getTopCard()}/> : null}
             </div>
         );
