@@ -1,4 +1,5 @@
 import Card from './Card';
+import {colors, figures} from './constants';
 
 export default class Deck {
     constructor(cards) {
@@ -19,8 +20,8 @@ export default class Deck {
     static getNew() {
         const cards = [];
 
-        for (const color of ['clubs', 'diamonds', 'hearts', 'spades']) {
-            for (const figure of [2, 3, 4, 5, 6, 7, 8, 9, 10, 'ace', 'king', 'queen', 'jack']) {
+        for (const color of Object.values(colors)) {
+            for (const figure of Object.values(figures)) {
                 cards.push(new Card(figure, color));
             }
         }
