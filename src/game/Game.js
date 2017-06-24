@@ -38,6 +38,16 @@ export default class Game {
         this.emitChange();
     }
 
+    moveFromWasteToPile(pile) {
+        const card = this.waste.getTopCard();
+
+        if (pile.canPush(card)) {
+            this.waste.toPile(pile);
+        }
+
+        this.emitChange();
+    }
+
     moveFromPileToFoundation(pile) {
         const card = pile.getTopCard();
         const foundation = this.findFoundationForCard(card);

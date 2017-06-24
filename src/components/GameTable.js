@@ -8,9 +8,10 @@ import {DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 function GamePile({pile, onCardDoubleClick, onDropOnFoundation}) {
-    return <Pile>
+    return <Pile pile={pile}>
         {pile.cards.map((card, i) =>
             <Card key={i} card={card}
+                  canDrag={i === pile.cards.length - 1}
                   onDoubleClick={() => onCardDoubleClick(card)}
                   onDropOnFoundation={(foundation) => onDropOnFoundation(foundation)}
             />)}
@@ -27,6 +28,7 @@ class GameTable extends Component {
                 <Waste waste={game.waste}
                        onDoubleClick={() => game.moveFromWasteToFoundation()}
                        onDropOnFoundation={(foundation) => game.moveFromWasteToSpecificFoundation(foundation)}
+                       onDropOnPile={(pile) => game.moveFromWasteToPile(pile)}
                 />
                 <div className="foundations">
                     {game.foundations.map((foundation, i) => <Foundation key={i} foundation={foundation}

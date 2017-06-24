@@ -36,4 +36,8 @@ export default class Waste {
     toFoundation(foundation) {
         foundation.pushCard(this.cards.pop());
     }
+
+    toPile(pile) {
+        pile.push(this.cards.pop());
+    }
 }

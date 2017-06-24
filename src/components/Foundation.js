@@ -7,7 +7,7 @@ import {ItemTypes} from '../dragAndDropConstants';
 const target = {
     drop(props, monitor) {
         return {
-            type: ItemTypes.FOUNDATION,
+            targetType: ItemTypes.FOUNDATION,
             foundation: props.foundation,
         }
     }

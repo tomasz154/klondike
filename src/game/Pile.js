@@ -21,4 +21,9 @@ export default class Pile {
         foundation.pushCard(this.cards.pop());
         this.revealLast();
     }
+
+    canPush() {
+        // todo
+        return true;
+    }
 }

@@ -5,6 +5,10 @@ import {ItemTypes} from '../dragAndDropConstants';
 import {DragSource} from 'react-dnd';
 
 const source = {
+    canDrag(props) {
+        return props.canDrag;
+    },
+
     beginDrag(props) {
         return {
             card: props.card,
@@ -17,8 +21,13 @@ const source = {
         }
 
         const dropResult = monitor.getDropResult();
-        if (dropResult.type === ItemTypes.FOUNDATION && props.onDropOnFoundation) {
+
+        console.log(dropResult);
+
+        if (dropResult.targetType === ItemTypes.FOUNDATION && props.onDropOnFoundation) {
             props.onDropOnFoundation(dropResult.foundation);
+        } else if (dropResult.targetType === ItemTypes.PILE && props.onDropOnPile) {
+            props.onDropOnPile(dropResult.pile);
         }
     }
 };
