@@ -1,19 +1,8 @@
 import React, {Component} from 'react';
 import Pile from './Pile';
 import Card from './Card';
-import HiddenCard from './HiddenCard';
-
-function GameDeck({deck}) {
-    return <div className="deck">
-        {deck.hasCards() ? <HiddenCard/> : null}
-    </div>;
-}
-
-function GameWaste({waste}) {
-    return <div className="waste">
-        {waste.getVisibleCards().map((c, i) => <Card key={i} figure={c.figure} color={c.color} turnedUp={c.turnedUp}/>)}
-    </div>;
-}
+import Waste from './Waste';
+import Deck from './Deck';
 
 function GameCard({card}) {
     return <Card figure={card.figure} color={card.color} turnedUp={card.turnedUp}/>;
@@ -29,8 +18,8 @@ export default class GameTable extends Component {
 
         return <div>
             <div>
-                <GameDeck deck={game.getDeck()}/>
-                <GameWaste waste={game.getWaste()}/>
+                <Deck deck={game.getDeck()}/>
+                <Waste waste={game.getWaste()}/>
             </div>
             <div className="piles">
                 {game.getPiles().map((pile, i) => <GamePile key={i} pile={pile}/>)}
