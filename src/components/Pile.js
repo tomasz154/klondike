@@ -5,7 +5,7 @@ import Subpile from './Subpile';
 class Pile extends Component {
     render() {
         return <div className="pile">
-            <Subpile>{this.props.children}</Subpile>
+            {this.props.children.length > 0 && <Subpile>{this.props.children}</Subpile>}
         </div>;
     }
 }

@@ -4,7 +4,9 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 import GameTable from './components/GameTable';
+import Game from './game/Game';
 
-ReactDOM.render(<GameTable />, document.getElementById('root'));
+const game = new Game();
+ReactDOM.render(<GameTable game={game}/>, document.getElementById('root'));
 
 registerServiceWorker();
