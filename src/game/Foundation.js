@@ -44,4 +44,8 @@ export default class Foundation {
     pushCard(card) {
         this.cards.push(card);
     }
+
+    isComplete() {
+        return this.cards.length === 13;
+    }
 }

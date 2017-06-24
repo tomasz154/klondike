@@ -23,6 +23,13 @@ body {
     margin-right: 20px;
 }
 
+.foundation, .deck-empty {
+    width: 150px;
+    height: 218px;
+    border: 1px solid black;
+    border-radius: 7px;
+}
+
 .waste {
     float: left;
 }
@@ -34,12 +41,6 @@ body {
 
 .foundation {
     margin: 0 10px;
-
-    width: 150px;
-    height: 218px;
-    border: 1px solid black;
-
-    border-radius: 7px;
 
     background-image: repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;

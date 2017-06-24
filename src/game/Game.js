@@ -117,4 +117,14 @@ export default class Game {
         }
         return foundation;
     }
+
+    isFinished() {
+        for (const foundation of this.foundations) {
+            if (!foundation.isComplete()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
