@@ -25,6 +25,11 @@ export default class Game {
     moveFromWasteToFoundation() {
         const card = this.waste.getTopCard();
         const foundation = this.findFoundationForCard(card);
+        this.moveFromWasteToSpecificFoundation(foundation);
+    }
+
+    moveFromWasteToSpecificFoundation(foundation) {
+        const card = this.waste.getTopCard();
 
         if (foundation.canPush(card)) {
             this.waste.toFoundation(foundation);
@@ -36,6 +41,12 @@ export default class Game {
     moveFromPileToFoundation(pile) {
         const card = pile.getTopCard();
         const foundation = this.findFoundationForCard(card);
+
+        this.moveFromPileToSpecificFoundation(pile, foundation);
+    }
+
+    moveFromPileToSpecificFoundation(pile, foundation) {
+        const card = pile.getTopCard();
 
         if (foundation.canPush(card)) {
             pile.toFoundation(foundation);

@@ -1,6 +1,34 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import HiddenCard from './HiddenCard';
+import {ItemTypes} from '../dragAndDropConstants';
+import {DragSource} from 'react-dnd';
+
+const source = {
+    beginDrag(props) {
+        return {
+            card: props.card,
+        };
+    },
+
+    endDrag(props, monitor, component) {
+        if (!monitor.didDrop()) {
+            return;
+        }
+
+        const dropResult = monitor.getDropResult();
+        if (dropResult.type === ItemTypes.FOUNDATION) {
+            props.onDropOnFoundation(dropResult.foundation);
+        }
+    }
+};
+
+function collect(connect, monitor) {
+    return {
+        connectDragSource: connect.dragSource(),
+        isDragging: monitor.isDragging()
+    }
+}
 
 class Card extends Component {
     path(figure, color) {
@@ -12,10 +40,14 @@ class Card extends Component {
     }
 
     render() {
+        const {connectDragSource} = this.props;
+
         if (this.props.card.turnedUp) {
-            return <div className="card" onDoubleClick={this.handleDoubleClick.bind(this)}>
-                <img src={this.path(this.props.card.figure, this.props.card.color)} alt=""/>
-            </div>;
+            return connectDragSource(
+                <div className="card" onDoubleClick={this.handleDoubleClick.bind(this)}>
+                    <img src={this.path(this.props.card.figure, this.props.card.color)} alt=""/>
+                </div>
+            );
         } else {
             return <HiddenCard/>
         }
@@ -24,6 +56,8 @@ class Card extends Component {
 
 Card.propTypes = {
     card: PropTypes.object.isRequired,
+    connectDragSource: PropTypes.func.isRequired,
+    isDragging: PropTypes.bool.isRequired
 };
 
-export default Card;
+export default DragSource(ItemTypes.CARD, source, collect)(Card);

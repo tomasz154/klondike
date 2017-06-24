@@ -24,6 +24,10 @@ body {
 
 .foundation {
     float: left;
+    width: 200px;
+    height: 280px;
+    background: pink;
+    margin: 10px;
 }
 
 .card {

@@ -1,6 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Subpile from './Subpile';
+import SubpileDraggable from './Subpile';
+
+function Subpile({children}) {
+    return <SubpileDraggable>
+        {children[0]}
+        {children.length > 1 &&
+        <Subpile>
+            {children.slice(1)}
+        </Subpile>}
+    </SubpileDraggable>;
+}
 
 class Pile extends Component {
     render() {
