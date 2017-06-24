@@ -20,6 +20,12 @@ body {
     overflow: hidden;
 }
 
+.subpile .card.turnedDown {
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+}
+
 .subpile:first-child {
     margin-top: 0;
 }

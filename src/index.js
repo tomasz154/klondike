@@ -9,18 +9,18 @@ import Pile from "./components/Pile";
 function App() {
     return <div>
         <Pile>
-            <Card figure="queen" color="spades"/>
-            <Card figure="king" color="hearts"/>
-            <Card figure="ace" color="hearts"/>
-            <Card figure="6" color="clubs"/>
-            <Card figure="9" color="hearts"/>
-            <Card figure="3" color="hearts"/>
+            <Card figure="queen" color="spades" turnedUp={false}/>
+            <Card figure="king" color="hearts" turnedUp={false}/>
+            <Card figure="ace" color="hearts" turnedUp={false}/>
+            <Card figure="6" color="clubs" turnedUp={false}/>
+            <Card figure="9" color="hearts" turnedUp={true}/>
+            <Card figure="3" color="hearts" turnedUp={true}/>
         </Pile>
 
         <Pile>
-            <Card figure="3" color="hearts"/>
-            <Card figure="ace" color="hearts"/>
-            <Card figure="king" color="hearts"/>
+            <Card figure="3" color="hearts" turnedUp={false}/>
+            <Card figure="ace" color="hearts" turnedUp={false}/>
+            <Card figure="king" color="hearts" turnedUp={false}/>
         </Pile>
     </div>;
 }
