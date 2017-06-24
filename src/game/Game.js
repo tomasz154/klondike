@@ -103,16 +103,16 @@ export default class Game {
         return piles;
     }
 
-    findFoundationByColor(color) {
-        return this.foundations.find(f => f.getColor() === color);
+    findFoundationBySuit(suit) {
+        return this.foundations.find(f => f.getSuit() === suit);
     }
 
     findEmptyFoundation() {
-        return this.foundations.find(f => f.getColor() === null);
+        return this.foundations.find(f => f.getSuit() === null);
     }
 
     findFoundationForCard(card) {
-        let foundation = this.findFoundationByColor(card.color);
+        let foundation = this.findFoundationBySuit(card.suit);
         if (!foundation) {
             foundation = this.findEmptyFoundation();
         }

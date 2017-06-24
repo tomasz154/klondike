@@ -40,8 +40,8 @@ function collect(connect, monitor) {
 }
 
 class Card extends Component {
-    path(figure, color) {
-        return `/cards/${figure}_of_${color}.svg`;
+    path(figure, suit) {
+        return `/cards/${figure}_of_${suit}.svg`;
     }
 
     handleDoubleClick() {
@@ -54,7 +54,7 @@ class Card extends Component {
         if (this.props.card.turnedUp) {
             return connectDragSource(
                 <div className="card" onDoubleClick={this.handleDoubleClick.bind(this)}>
-                    <img src={this.path(this.props.card.figure, this.props.card.color)} alt=""/>
+                    <img src={this.path(this.props.card.figure, this.props.card.suit)} alt=""/>
                 </div>
             );
         } else {

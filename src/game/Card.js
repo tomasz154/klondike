@@ -1,7 +1,7 @@
 export default class Card {
-    constructor(figure, color) {
+    constructor(figure, suit) {
         this.figure = figure;
-        this.color = color;
+        this.suit = suit;
         this.turnedUp = false;
     }
 

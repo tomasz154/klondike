@@ -29,13 +29,13 @@ export default class Foundation {
         return this.cards[this.cards.length - 1];
     }
 
-    getColor() {
-        return this.hasCards() ? this.getTopCard().color : null;
+    getSuit() {
+        return this.hasCards() ? this.getTopCard().suit : null;
     }
 
     canPush(card) {
         if (this.hasCards()) {
-            return this.getTopCard().color === card.color && order.indexOf(card.figure) === order.indexOf(this.getTopCard().figure) + 1;
+            return this.getTopCard().suit === card.suit && order.indexOf(card.figure) === order.indexOf(this.getTopCard().figure) + 1;
         } else {
             return card.figure === figures.ACE;
         }

@@ -1,4 +1,4 @@
-export const colors = {
+export const suits = {
     CLUBS: 'clubs',
     DIAMONDS: 'diamonds',
     HEARTS: 'hearts',
