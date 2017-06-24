@@ -1,3 +1,12 @@
+import {suits, colors} from './constants';
+
+const suitColors = {
+    [suits.DIAMONDS]: colors.RED,
+    [suits.HEARTS]: colors.RED,
+    [suits.CLUBS]: colors.BLACK,
+    [suits.SPADES]: colors.BLACK,
+};
+
 export default class Card {
     constructor(figure, suit) {
         this.figure = figure;
@@ -11,5 +20,9 @@ export default class Card {
 
     hide() {
         this.turnedUp = false;
+    }
+
+    getColor() {
+        return suitColors[this.suit];
     }
 }

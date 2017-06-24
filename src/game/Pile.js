@@ -1,3 +1,20 @@
+import {figures, suits} from './constants';
+
+const order = [
+    figures.NUMBER_2,
+    figures.NUMBER_3,
+    figures.NUMBER_4,
+    figures.NUMBER_5,
+    figures.NUMBER_6,
+    figures.NUMBER_7,
+    figures.NUMBER_8,
+    figures.NUMBER_9,
+    figures.NUMBER_10,
+    figures.JACK,
+    figures.QUEEN,
+    figures.KING,
+];
+
 export default class Pile {
     constructor() {
         this.cards = [];
@@ -35,13 +52,21 @@ export default class Pile {
 
     toPile(target, number) {
         const cardsToPush = this.cards.slice(-number);
-        this.cards = this.cards.slice(0, this.cards.length - number );
+        this.cards = this.cards.slice(0, this.cards.length - number);
         target.pushCards(cardsToPush);
         this.revealLast();
     }
 
-    canPush() {
-        // todo
-        return true;
+    canPush(card) {
+        if (!this.hasCards() && card.figure === figures.KING) {
+            return true;
+        } else {
+            console.log(card.getColor(), this.getTopCard().getColor());
+            return card.getColor() !== this.getTopCard().getColor() && order.indexOf(card.figure) === order.indexOf(this.getTopCard().figure) - 1;
+        }
+    }
+
+    hasCards() {
+        return this.cards.length > 0;
     }
 }

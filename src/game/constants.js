@@ -20,3 +20,8 @@ export const figures = {
     QUEEN: 'queen',
     JACK: 'jack',
 };
+
+export const colors = {
+    RED: 'red',
+    BLACK: 'black',
+};

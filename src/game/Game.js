@@ -49,7 +49,6 @@ export default class Game {
     }
 
     moveFromPileToPile(source, target, number) {
-        console.log(source, target, number);
         const card = source.getCard(number);
 
         if (target.canPush(card)) {
