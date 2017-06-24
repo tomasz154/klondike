@@ -8,9 +8,9 @@ class Card extends Component {
     }
 
     render() {
-        if (this.props.turnedUp) {
+        if (this.props.card.turnedUp) {
             return <div className="card">
-                <img src={this.path(this.props.figure, this.props.color)} alt=""/>
+                <img src={this.path(this.props.card.figure, this.props.card.color)} alt=""/>
             </div>;
         } else {
             return <HiddenCard/>
@@ -19,9 +19,7 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-    figure: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired,
-    turnedUp: PropTypes.bool.isRequired,
+    card: PropTypes.object.isRequired,
 };
 
 export default Card;

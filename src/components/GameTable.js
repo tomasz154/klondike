@@ -5,12 +5,8 @@ import Waste from './Waste';
 import Deck from './Deck';
 import Foundation from './Foundation';
 
-function GameCard({card}) {
-    return <Card figure={card.figure} color={card.color} turnedUp={card.turnedUp}/>;
-}
-
 function GamePile({pile}) {
-    return <Pile>{pile.cards.map((card, i) => <GameCard key={i} card={card}/>)}</Pile>;
+    return <Pile>{pile.cards.map((card, i) => <Card key={i} card={card}/>)}</Pile>;
 }
 
 export default class GameTable extends Component {
