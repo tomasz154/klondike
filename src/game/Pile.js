@@ -10,8 +10,4 @@ export default class Pile {
     revealLast() {
         this.cards[this.cards.length - 1].reveal();
     }
-
-    getCards() {
-        return this.cards;
-    }
 }

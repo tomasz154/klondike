@@ -17,8 +17,4 @@ export default class Waste {
 
         this.visibleCards = revealedCards;
     }
-
-    getVisibleCards() {
-        return this.visibleCards;
-    }
 }

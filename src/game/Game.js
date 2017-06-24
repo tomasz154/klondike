@@ -1,30 +1,25 @@
 import Pile from './Pile';
 import Foundation from './Foundation';
 import Waste from './Waste';
-import {colors} from './constants';
 
 export default class Game {
-    constructor(deck) {
+    constructor(deck, observer) {
         this.deck = deck;
         this.waste = new Waste();
         this.foundations = this.constructor.buildFoundations();
         this.piles = this.constructor.buildPiles(deck);
+
+        this.observer = observer(this);
+        this.emitChange();
     }
 
-    getDeck() {
-        return this.deck;
-    }
-
-    getWaste() {
-        return this.waste;
-    }
-
-    getPiles() {
-        return this.piles;
+    emitChange() {
+        this.observer();
     }
 
     revealNew() {
         this.waste.pushCards([this.deck.popCard()]);
+        this.observer();
     }
 
     static buildFoundations() {

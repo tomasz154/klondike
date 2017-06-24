@@ -9,20 +9,23 @@ function GameCard({card}) {
 }
 
 function GamePile({pile}) {
-    return <Pile>{pile.getCards().map((card, i) => <GameCard key={i} card={card}/>)}</Pile>;
+    return <Pile>{pile.cards.map((card, i) => <GameCard key={i} card={card}/>)}</Pile>;
 }
 
 export default class GameTable extends Component {
+    componentWillReceiveProps(nextProps) {
+    }
+
     render() {
         const {game} = this.props;
 
         return <div>
             <div>
-                <Deck deck={game.getDeck()}/>
-                <Waste waste={game.getWaste()}/>
+                <Deck deck={game.deck} onClick={() => game.revealNew()}/>
+                <Waste visibleCards={game.waste.visibleCards}/>
             </div>
             <div className="piles">
-                {game.getPiles().map((pile, i) => <GamePile key={i} pile={pile}/>)}
+                {game.piles.map((pile, i) => <GamePile key={i} pile={pile}/>)}
             </div>
         </div>;
     }

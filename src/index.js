@@ -8,8 +8,9 @@ import Game from './game/Game';
 import Deck from './game/Deck';
 
 const deck = Deck.getRandom();
-const game = new Game(deck);
-game.revealNew();
-ReactDOM.render(<GameTable game={game}/>, document.getElementById('root'));
+
+new Game(deck, game => () =>
+    ReactDOM.render(<GameTable game={game}/>, document.getElementById('root'))
+);
 
 registerServiceWorker();
