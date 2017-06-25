@@ -25,8 +25,10 @@ export default class Waste {
     }
 
     popCard() {
-        this.cards.pop();
-        this.visibleCards--;
+        if (this.visibleCards > 1) {
+            this.visibleCards--;
+        }
+        return this.cards.pop();
     }
 
     fromDeck(deck, number) {
