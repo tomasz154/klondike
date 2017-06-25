@@ -46,7 +46,7 @@ export default class Foundation {
     }
 
     toPile(pile) {
-        pile.push(this.cards.pop());
+        pile.pushCard(this.cards.pop());
     }
 
     isComplete() {

@@ -20,7 +20,7 @@ export default class Pile {
         this.cards = [];
     }
 
-    push(card) {
+    pushCard(card) {
         this.cards.push(card);
     }
 

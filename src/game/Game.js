@@ -103,7 +103,7 @@ export default class Game {
 
         for (let i = 0; i < 7; i++) {
             for (let j = i; j < 7; j++) {
-                piles[j].push(deck.popCard());
+                piles[j].pushCard(deck.popCard());
                 if (i === j) {
                     piles[j].revealLast();
                 }
