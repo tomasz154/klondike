@@ -32,7 +32,7 @@ body {
 }
 
 .deck {
-    margin-right: 20px;
+    margin-right: 24px;
 }
 
 .foundation, .deck-empty {
@@ -61,7 +61,7 @@ body {
 }
 
 .foundation {
-    margin: 0 10px;
+    margin: 0 11px;
 
     background-image: repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
