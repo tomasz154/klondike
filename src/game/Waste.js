@@ -17,11 +17,7 @@ export default class Waste {
 
     pushCard(card) {
         card.reveal();
-
-        this.cards = [
-            ...this.cards,
-            card
-        ];
+        this.cards.push(card);
     }
 
     popCard() {
