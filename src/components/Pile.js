@@ -22,7 +22,7 @@ function collect(connect, monitor) {
 }
 
 function Subpile({children, onDropOnPile}) {
-    return <SubpileDraggable onDropOnPile={onDropOnPile} number={children.length}>
+    return <SubpileDraggable onDropOnPile={onDropOnPile} number={children.length} canDrag={children[0].props.card.turnedUp}>
         {children[0]}
         {children.length > 1 &&
         <Subpile onDropOnPile={onDropOnPile}>

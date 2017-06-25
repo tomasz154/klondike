@@ -4,6 +4,10 @@ import {ItemTypes} from '../dragAndDropConstants';
 import {DragSource} from 'react-dnd';
 
 const source = {
+    canDrag(props) {
+        return props.canDrag;
+    },
+
     beginDrag(props) {
         return {
             number: props.number,

@@ -51,9 +51,10 @@ class Card extends Component {
 
         if (this.props.card.turnedUp) {
             return connectDragSource(
-                <div className="card" onDoubleClick={this.handleDoubleClick.bind(this)}>
-                    <img src={this.path(this.props.card.figure, this.props.card.suit)} alt=""/>
-                </div>
+                <div className="card"
+                     style={{backgroundImage: `url(${this.path(this.props.card.figure, this.props.card.suit)})`}}
+                     onDoubleClick={this.handleDoubleClick.bind(this)}
+                />
             );
         } else {
             return <HiddenCard/>

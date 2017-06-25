@@ -9,9 +9,10 @@ body {
     margin: 0 auto;
 }
 
-.card img {
+.card {
     width: 150px;
     height: 218px;
+    background-size: 150px 218px;
 }
 
 .top {
@@ -87,5 +88,5 @@ body {
 }
 
 .subpile .card:last-child {
-    height: auto;
+    height: 218px;
 }
