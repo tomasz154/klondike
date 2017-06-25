@@ -58,14 +58,13 @@ export default class Pile {
     }
 
     canPush(card) {
-        if (!card.turnedUp) {
+        if (!card.turnedUp || card.figure === figures.ACE) {
             return false;
         }
 
-        if (!this.hasCards() && card.figure === figures.KING) {
-            return true;
+        if (!this.hasCards()) {
+            return card.figure === figures.KING;
         } else {
-            console.log(card.getColor(), this.getTopCard().getColor());
             return card.getColor() !== this.getTopCard().getColor() && order.indexOf(card.figure) === order.indexOf(this.getTopCard().figure) - 1;
         }
     }

@@ -33,7 +33,8 @@ class GameTable extends Component {
                 />
                 <div className="foundations">
                     {game.foundations.map((foundation, i) => <Foundation key={i} foundation={foundation}
-                                                                         onCardDrop={() => game.moveFromPileToFoundation()}/>)}
+                                                                         onCardDropOnPile={(pile) => game.moveFromFoundationToPile(foundation, pile)}
+                    />)}
                 </div>
             </div>
             <div className="bottom">

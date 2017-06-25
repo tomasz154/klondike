@@ -75,6 +75,16 @@ export default class Game {
         this.emitChange();
     }
 
+    moveFromFoundationToPile(foundation, pile) {
+        const card = foundation.getTopCard();
+
+        if (pile.canPush(card)) {
+            foundation.toPile(pile);
+        }
+
+        this.emitChange();
+    }
+
     static buildFoundations() {
         return [
             new Foundation(),

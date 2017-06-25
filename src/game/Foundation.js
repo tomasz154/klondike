@@ -45,6 +45,10 @@ export default class Foundation {
         this.cards.push(card);
     }
 
+    toPile(pile) {
+        pile.push(this.cards.pop());
+    }
+
     isComplete() {
         return this.cards.length === 13;
     }

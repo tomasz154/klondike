@@ -22,12 +22,20 @@ function collect(connect, monitor) {
 }
 
 class Foundation extends Component {
+    handleDropCardOnPile(pile) {
+        this.props.onCardDropOnPile(pile);
+    }
+
     render() {
         const {connectDropTarget, isOver, foundation} = this.props;
 
         return connectDropTarget(
             <div className="foundation">
-                {foundation.hasCards() ? <Card card={foundation.getTopCard()}/> : null}
+                {foundation.hasCards() ? <Card
+                    card={foundation.getTopCard()}
+                    canDrag={true}
+                    onDropOnPile={this.handleDropCardOnPile.bind(this)}
+                /> : null}
             </div>
         );
     }
