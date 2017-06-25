@@ -39,6 +39,15 @@ body {
     float: left;
 }
 
+.waste .card {
+    float: left;
+    margin-left: -125px;
+}
+
+.waste .card:first-child {
+    margin-left: 0;
+}
+
 .foundations {
     margin-left: auto;
     display: flex;

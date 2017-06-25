@@ -11,6 +11,10 @@ export default class Waste {
         return this.cards[this.cards.length - 1];
     }
 
+    getVisibleCards() {
+        return this.cards.slice(-this.visibleCards);
+    }
+
     pushCard(card) {
         card.reveal();
 
@@ -20,8 +24,17 @@ export default class Waste {
         ];
     }
 
-    fromDeck(deck) {
-        this.pushCard(deck.popCard());
+    popCard() {
+        this.cards.pop();
+        this.visibleCards--;
+    }
+
+    fromDeck(deck, number) {
+        let i;
+        for (i = 0; i < number && deck.hasCards(); i++) {
+            this.pushCard(deck.popCard());
+        }
+        this.visibleCards = i;
     }
 
     toDeck(deck) {
@@ -30,14 +43,15 @@ export default class Waste {
             deck.pushCard(card);
         }
 
-        this.cards = []
+        this.cards = [];
+        this.visibleCards = 0;
     }
 
     toFoundation(foundation) {
-        foundation.pushCard(this.cards.pop());
+        foundation.pushCard(this.popCard());
     }
 
     toPile(pile) {
-        pile.pushCard(this.cards.pop());
+        pile.pushCard(this.popCard());
     }
 }

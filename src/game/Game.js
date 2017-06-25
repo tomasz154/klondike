@@ -9,13 +9,15 @@ export default class Game {
         this.foundations = this.constructor.buildFoundations();
         this.piles = this.constructor.buildPiles(deck);
 
+        this.revealNumber = 3;
+
         this.emitChange = observer(this);
         this.emitChange();
     }
 
     revealNew() {
         if (this.deck.hasCards()) {
-            this.waste.fromDeck(this.deck);
+            this.waste.fromDeck(this.deck, this.revealNumber);
         } else if (this.waste.hasCards()) {
             this.waste.toDeck(this.deck);
         }

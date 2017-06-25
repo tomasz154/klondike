@@ -3,11 +3,12 @@ import Card from './Card';
 
 export default function Waste({waste, onDoubleClick, onDropOnFoundation, onDropOnPile}) {
     return <div className="waste">
-        {waste.hasCards() && <Card card={waste.getTopCard()}
-                                   canDrag={true}
-                                   onDoubleClick={onDoubleClick}
-                                   onDropOnFoundation={onDropOnFoundation}
-                                   onDropOnPile={onDropOnPile}
-        />}
+        {waste.hasCards() && waste.getVisibleCards().map((card, i) =>
+            <Card card={card}
+                  canDrag={waste.getVisibleCards().length - 1 === i}
+                  onDoubleClick={onDoubleClick}
+                  onDropOnFoundation={onDropOnFoundation}
+                  onDropOnPile={onDropOnPile}
+            />)}
     </div>;
 }
