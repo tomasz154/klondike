@@ -20,8 +20,23 @@ function GamePile({pile, onCardDoubleClick, onDropOnFoundation, onDropOnPile}) {
 }
 
 class GameTable extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            revealNumber: props.game.revealNumber,
+        };
+    }
+
     handleReset() {
         this.props.onReset();
+    }
+
+    handleRevealNumberChange(e) {
+        this.setState({
+            revealNumber: Number(e.target.value),
+        }, () => this.props.onSettingsChange({
+            revealNumber: this.state.revealNumber,
+        }));
     }
 
     render() {
@@ -30,6 +45,13 @@ class GameTable extends Component {
         return <div className="table">
             <div className="controls">
                 <button onClick={this.handleReset.bind(this)}>Nowa gra</button>
+                <div>
+                    Rozdawaj:
+                    <label><input type="radio" value={1} checked={this.state.revealNumber === 1}
+                                  onChange={this.handleRevealNumberChange.bind(this)}/>1 kartę</label>
+                    <label><input type="radio" value={3} checked={this.state.revealNumber === 3}
+                                  onChange={this.handleRevealNumberChange.bind(this)}/>3 karty</label>
+                </div>
             </div>
             <div className="top">
                 <Deck deck={game.deck} onClick={() => game.revealNew()}/>

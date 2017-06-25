@@ -3,13 +3,13 @@ import Foundation from './Foundation';
 import Waste from './Waste';
 
 export default class Game {
-    constructor(deck, observer) {
+    constructor(deck, settings, observer) {
         this.deck = deck;
         this.waste = new Waste();
         this.foundations = this.constructor.buildFoundations();
         this.piles = this.constructor.buildPiles(deck);
 
-        this.revealNumber = 3;
+        this.revealNumber = settings.revealNumber;
 
         this.emitChange = observer(this);
         this.emitChange();

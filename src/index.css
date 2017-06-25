@@ -17,6 +17,13 @@ body {
 
 .controls {
     margin-bottom: 10px;
+    background: #007800;
+    padding: 3px;
+    display: flex;
+}
+
+.controls div {
+    margin-left: 20px;
 }
 
 .top {

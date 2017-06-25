@@ -7,7 +7,11 @@ import GameTable from './components/GameTable';
 import GameController from './game/GameController';
 
 new GameController(controller => game => () =>
-    ReactDOM.render(<GameTable game={game} onReset={() => controller.reset()}/>, document.getElementById('root'))
+    ReactDOM.render(<GameTable
+        game={game}
+        onReset={() => controller.reset()}
+        onSettingsChange={settings => controller.changeSettings(settings)}
+    />, document.getElementById('root'))
 );
 
 registerServiceWorker();
