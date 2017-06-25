@@ -94,19 +94,9 @@ body {
 }
 
 .subpile {
-    margin-top: -6px;
-}
-
-.subpile .card {
-    width: 100%;
-    height: 43px;
-    overflow: hidden;
+    margin-top: -186px;
 }
 
 .subpile:first-child {
     margin-top: 0;
-}
-
-.subpile .card:last-child {
-    height: 218px;
 }
