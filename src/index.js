@@ -4,13 +4,10 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 import GameTable from './components/GameTable';
-import Game from './game/Game';
-import Deck from './game/Deck';
+import GameController from './game/GameController';
 
-const deck = Deck.getRandom();
-
-new Game(deck, game => () =>
-    ReactDOM.render(<GameTable game={game}/>, document.getElementById('root'))
+new GameController(controller => game => () =>
+    ReactDOM.render(<GameTable game={game} onReset={() => controller.reset()}/>, document.getElementById('root'))
 );
 
 registerServiceWorker();

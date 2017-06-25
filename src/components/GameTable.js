@@ -20,10 +20,17 @@ function GamePile({pile, onCardDoubleClick, onDropOnFoundation, onDropOnPile}) {
 }
 
 class GameTable extends Component {
+    handleReset() {
+        this.props.onReset();
+    }
+
     render() {
         const {game} = this.props;
 
         return <div className="table">
+            <div className="controls">
+                <button onClick={this.handleReset.bind(this)}>Nowa gra</button>
+            </div>
             <div className="top">
                 <Deck deck={game.deck} onClick={() => game.revealNew()}/>
                 <Waste waste={game.waste}

@@ -15,6 +15,10 @@ body {
     background-size: 150px 218px;
 }
 
+.controls {
+    margin-bottom: 10px;
+}
+
 .top {
     margin-bottom: 20px;
     display: flex;
