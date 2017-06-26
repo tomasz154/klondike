@@ -28,11 +28,14 @@ export default class Deck {
     static getNew() {
         const cards = [];
 
-        for (const suit of Object.values(suits)) {
-            for (const figure of Object.values(figures)) {
+        Object.keys(suits).forEach(i => {
+            const suit = suits[i];
+
+            Object.keys(figures).forEach(j => {
+                const figure = figures[j];
                 cards.push(new Card(figure, suit));
-            }
-        }
+            });
+        });
 
         return new Deck(cards);
     }
