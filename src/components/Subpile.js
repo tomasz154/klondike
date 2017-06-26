@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {ItemTypes} from '../dragAndDropConstants';
 import {DragSource} from 'react-dnd';
+import classNames from 'classnames';
 
 const source = {
     canDrag(props) {
@@ -38,7 +39,11 @@ class Subpile extends Component {
     render() {
         const {connectDragSource, isDragging} = this.props;
         return connectDragSource(
-            <div className="subpile">
+            <div className={classNames({
+                'subpile': true,
+                'dragging': isDragging,
+            })}
+            >
                 {this.props.children}
             </div>
         );

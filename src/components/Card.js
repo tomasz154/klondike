@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import HiddenCard from './HiddenCard';
 import {ItemTypes} from '../dragAndDropConstants';
 import {DragSource} from 'react-dnd';
+import classNames from 'classnames';
 
 const source = {
     canDrag(props) {
@@ -47,11 +48,14 @@ class Card extends Component {
     }
 
     render() {
-        const {connectDragSource} = this.props;
+        const {connectDragSource, isDragging} = this.props;
 
         if (this.props.card.turnedUp) {
             return connectDragSource(
-                <div className="card"
+                <div className={classNames({
+                    'card': true,
+                    'dragging': isDragging,
+                })}
                      style={{backgroundImage: `url(${this.path(this.props.card.figure, this.props.card.suit)})`}}
                      onDoubleClick={this.handleDoubleClick.bind(this)}
                 />
