@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import SubpileDraggable from './Subpile';
 import {DropTarget} from 'react-dnd';
 import {ItemTypes} from '../dragAndDropConstants';
@@ -37,7 +36,7 @@ class Pile extends Component {
     }
 
     render() {
-        const {connectDropTarget, isOver} = this.props;
+        const {connectDropTarget} = this.props;
 
         return connectDropTarget(
             <div className="pile">

@@ -27,7 +27,7 @@ class Foundation extends Component {
     }
 
     render() {
-        const {connectDropTarget, isOver, foundation} = this.props;
+        const {connectDropTarget, foundation} = this.props;
 
         return connectDropTarget(
             <div className="foundation">

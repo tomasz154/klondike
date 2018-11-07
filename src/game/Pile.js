@@ -1,4 +1,4 @@
-import {figures, suits} from './constants';
+import {figures} from './constants';
 
 const order = [
     figures.NUMBER_2,
